@@ -1,19 +1,21 @@
 {
-  "name": "trabajo-mcga",
+  "name": "FrontMCGA",
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "10.15.3"
+    "node": "14.17.5"
   },
   "dependencies": {
-    "react": "^16.10.2",
+    "bootstrap": "^5.1.3",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.0.4",
     "react-dom": "^16.10.2",
-    "react-redux": "^7.1.1",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
-    "redux": "^4.0.4",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "react-scripts": "^5.0.0",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
