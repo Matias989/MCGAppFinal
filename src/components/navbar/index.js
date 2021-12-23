@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 export default class NavReact extends React.Component {
     render(){
@@ -7,12 +8,16 @@ export default class NavReact extends React.Component {
         <>
           <Navbar bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-            </Nav>
+              <Navbar.Brand href="/Home">MCGA</Navbar.Brand>
+              <Nav className="me-auto">
+                <Nav.Link href="/Home">Home</Nav.Link>
+                <Nav.Link href="/Productos">Productos</Nav.Link>
+              </Nav>
+              <Navbar.Collapse className="justify-content-end">
+                <Navbar.Text>
+                  <Button variant="info"><FaSignOutAlt className='mb-1'/></Button>
+                </Navbar.Text>
+              </Navbar.Collapse>
             </Container>
           </Navbar>
         </>

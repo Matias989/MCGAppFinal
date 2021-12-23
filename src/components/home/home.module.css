@@ -1,0 +1,6 @@
+.TitleText{
+    text-align: center;
+    font-weight: 600;
+    font-size: calc(7.625rem + 4.5vw);
+    line-height: 1.2;
+}
