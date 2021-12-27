@@ -5,15 +5,19 @@ import {
 } from 'react-router-dom'
 import Login from './components/Login'
 import Home from './components/Home'
-import Productos from './components/Productos';
+import Productos from './components/Products';
+import { Provider } from 'react-redux'
+import store from './store/index'
 
 function App() {
   return (
-    <Router>
-      <Route exact path={'/'} component={Login} />
-      <Route exact path={'/Home'} component={Home} />
-      <Route exact path={'/Productos'} component={Productos} />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Route exact path={'/'} component={Login} />
+        <Route exact path={'/Home'} component={Home} />
+        <Route exact path={'/Productos'} component={Productos} />
+      </Router>
+    </Provider>
   );
 }
 

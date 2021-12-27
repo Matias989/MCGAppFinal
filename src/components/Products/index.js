@@ -1,12 +1,22 @@
-import React from 'react';
-import { Container, Row , Col, Button} from 'react-bootstrap';
-import TableContent from '../TableContent/index';
-import NavReact from "../Navbar/index"
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Product from './Product/index';
+import { Container, Row , Col, Button, Table} from 'react-bootstrap';
+import NavReact from "../../shared/Navbar/index"
 import { FaPlusCircle } from 'react-icons/fa';
+import { getAllProductsAction } from '../../store/actions/product/productActions';
 
-export default class Productos extends React.Component {
-    render(){
-      return (
+const Products = () => {
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      const getAllProducts = () => dispatch(getAllProductsAction());
+      getAllProducts();
+    }, []);
+  
+    const { loading, error, products } = useSelector((state) => state.products);
+
+    return (
         <>
             <NavReact/>
             <Container fluid="md">
@@ -22,13 +32,33 @@ export default class Productos extends React.Component {
                         </Row>
                         <Row>
                             <Col>
-                                <TableContent/>
+                                {loading ? <h4 className='text-center'> Loading... </h4> : null}
+
+                                {error ? (
+                                <p className='alert alert-danger p-2 m-4 text-center'>
+                                    Ocurrio un error.
+                                </p>
+                                ) : null}
+
+                                <Table striped bordered hover variant="dark">
+                                    <thead>
+                                        <tr>
+                                        <th>Nombre</th>
+                                        <th>Categoria</th>
+                                        <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        { products.length === 0 ? 'No hay Productos' : products.map((product) => ( <Product key={product._id} product={product} /> )) }
+                                    </tbody>
+                                </Table>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
             </Container>
         </>
-      );
-    }
-}
+    );
+  };
+
+  export default Products;

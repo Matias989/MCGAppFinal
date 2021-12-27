@@ -11,12 +11,12 @@ import {
     GET_PRODUCTS,
     GET_PRODUCTS_SUCCESS,
     GET_PRODUCTS_ERROR,
-  } from '../../types/products';
+  } from '../../../types/products';
   
   const initialState = {
     products: [],
     error: null,
-    loading: false,
+    loading: true,
     product: null,
   };
   

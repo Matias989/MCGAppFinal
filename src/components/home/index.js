@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import NavReact from "../Navbar/index"
+import NavReact from "../../shared/Navbar/index"
 import HomeStyle from "./home.module.css"
 import { merge, fadeIn, shake } from 'react-animations'
 import Radium from 'radium';

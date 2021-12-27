@@ -1,19 +1,20 @@
 import Swal from 'sweetalert2';
-import client from '../../config/axios';
+import client from '../../../config/axios';
+
 import {
   ADD_PRODUCT,
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_ERROR,
   EDIT_PRODUCT,
-  EDIT_PRODUCT_SUCCESS,
-  EDIT_PRODUCT_ERROR,
+  // EDIT_PRODUCT_SUCCESS,
+  // EDIT_PRODUCT_ERROR,
   DELETE_PRODUCT,
   DELETE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_ERROR,
   GET_PRODUCTS,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
-} from '../../types/products';
+} from '../../../types/products';
 
 const productUrl = '/product';
 
@@ -129,14 +130,4 @@ export const editProductAction = (product) => {
 const editProduct = (product) => ({
   type: EDIT_PRODUCT,
   payload: product,
-});
-
-const editProductSuccess = (product) => ({
-  type: EDIT_PRODUCT_SUCCESS,
-  payload: product,
-});
-
-const editProductError = (status) => ({
-  type: EDIT_PRODUCT_ERROR,
-  payload: status,
 });
