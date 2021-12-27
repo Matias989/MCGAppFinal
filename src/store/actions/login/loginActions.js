@@ -1,45 +1,35 @@
+import client from '../../../config/axios';
 import {
-    ON_CHANGE_EMAIL,
-    ON_CHANGE_PASSWORD,
-    LOGIN_PENDING,
     LOGIN_SUCCESS,
     LOGIN_ERROR
 } from '../../../types/login';
-  
-  export const handleLogin = (email, password) => {
-    return (dispatch) => {
-      dispatch({
-        type: LOGIN_PENDING
-      })
-  
-      const options = {
-        baseURL: 'http://localhost:4000/',
-        timeout: 25000,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+
+const userUrl = '/login';
+
+export function handleLogin(email, password) {
+  return async (dispatch) => {
+
+    const req = {
+      email: email,
+      password: password
+    }
+    try {
+      const res = await client.get(`${userUrl}`,req);
+      
+      if(res.success){
+        return Promise.reject(res) 
       }
-  
-      return fetch(`http://localhost:4000/login`, {
-        ...options, body: JSON.stringify({ email, password }) 
+
+      return dispatch({
+        type:LOGIN_SUCCESS,
+        payload: res,
       })
-        .then(res => res.json())
-        .then (data => { 
-          if(!data.success) {
-            return Promise.reject(data) 
-          }
-          return dispatch({
-            type:LOGIN_SUCCESS,
-            payload: data,
-          })
-        })
-        .catch (error => {
-          return dispatch({
-            type:LOGIN_ERROR,
-            payload: error
-          })
-        })
-      }
-  }
-  
+    } catch (error) {
+
+      return dispatch({
+        type:LOGIN_ERROR,
+        payload: error
+      })
+    }
+  };
+}
