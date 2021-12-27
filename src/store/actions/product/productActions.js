@@ -37,7 +37,7 @@ export function addNewProductAction(product) {
       Swal.fire({
         icon: 'error',
         title: 'Ocurrio un error.',
-        text: 'Ocurrio un error, intenta de nuevo.',
+        text: 'Ocurrio un error al agregar un nuevo producto, intenta de nuevo.',
       });
     }
   };

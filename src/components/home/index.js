@@ -9,10 +9,10 @@ const fadeInHeadShake = merge(fadeIn, shake);
 
 const styles = {
     fadeInHeadShake: {
-      animation: 'x 1s',
-      animationName: Radium.keyframes(fadeInHeadShake, 'fadeInHeadShake')
+        animation: 'x 1s',
+        animationName: Radium.keyframes(fadeInHeadShake, 'fadeInHeadShake')
     }
-  }
+}
 
 const Home = () => {
     return (

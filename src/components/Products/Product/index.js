@@ -3,12 +3,11 @@ import { Button } from 'react-bootstrap';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
-
 import {
     deleteProductAction,
     editProductAction,
   } from '../../../store/actions/product/productActions';
-  
+
 const Product = ({ product }) => {
     
     const { _id, name, category } = product;
@@ -37,16 +36,14 @@ const Product = ({ product }) => {
     };
 
     return (
-        <>
-                    <tr>
-                    <td>{name}</td>
-                    <td>{category}</td>
-                    <td className='text-center'>
-                        <Button onClick={() => onEditRedirection(_id)} className='m-1' variant="info"><FaEdit className='mb-1'/></Button>
-                        <Button onClick={() => onDeleteProduct(_id)} className='m-1' variant="info"><FaTrash className='mb-1'/></Button>
-                    </td>
-                    </tr>
-        </>
+            <tr>
+                <td>{name}</td>
+                <td>{category}</td>
+                <td className='text-center'>
+                    <Button onClick={() => onEditRedirection(_id)} className='m-1' variant="info"><FaEdit className='mb-1'/></Button>
+                    <Button onClick={() => onDeleteProduct(_id)} className='m-1' variant="info"><FaTrash className='mb-1'/></Button>
+                </td>
+            </tr>
       );
 };
 

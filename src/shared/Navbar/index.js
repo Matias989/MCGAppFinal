@@ -15,7 +15,7 @@ export default class NavReact extends React.Component {
               </Nav>
               <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
-                  <Button variant="info"><FaSignOutAlt className='mb-1'/></Button>
+                  <Nav.Link href="/"><FaSignOutAlt className='mb-1'/></Nav.Link>
                 </Navbar.Text>
               </Navbar.Collapse>
             </Container>
