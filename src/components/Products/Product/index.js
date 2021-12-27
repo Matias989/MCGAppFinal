@@ -3,16 +3,17 @@ import { Button } from 'react-bootstrap';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom'; 
 import {
     deleteProductAction,
-    editProductAction,
+    editProduct
   } from '../../../store/actions/product/productActions';
 
 const Product = ({ product }) => {
     
     const { _id, name, category } = product;
     const dispatch = useDispatch();
-
+    const history = useHistory();
     const onDeleteProduct = (id) => {
         Swal.fire({
         title: '¿Esta seguro?',
@@ -30,9 +31,9 @@ const Product = ({ product }) => {
         });
     };
 
-    const onEditRedirection = (props,id) => {
-        dispatch(editProductAction(product));
-        props.history.push(`/products/edit/${id}`);
+    const onEditRedirection = (id) => {
+        dispatch(editProduct(product));
+        history.push(`/Productos/Edit/${id}`);
     };
 
     return (

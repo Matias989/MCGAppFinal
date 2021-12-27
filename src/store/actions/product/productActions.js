@@ -6,8 +6,8 @@ import {
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_ERROR,
   EDIT_PRODUCT,
-  // EDIT_PRODUCT_SUCCESS,
-  // EDIT_PRODUCT_ERROR,
+  EDIT_PRODUCT_SUCCESS,
+  EDIT_PRODUCT_ERROR,
   DELETE_PRODUCT,
   DELETE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_ERROR,
@@ -124,10 +124,37 @@ const deleteProductError = (status) => ({
 export const editProductAction = (product) => {
   return async (dispatch) => {
     dispatch(editProduct(product));
+    try {
+      await client.put(`${productUrl}`,product);
+      dispatch(editProductSuccess(product));
+      Swal.fire(
+        'Editado',
+        'El producto se edito correctamente...',
+        'success'
+      );
+    } catch (error) {
+      console.error(error);
+      dispatch(editProductError(true));
+      Swal.fire({
+        icon: 'error',
+        title: 'Ocurrio un error.',
+        text: 'Ocurrio un error al editar el producto, intenta de nuevo.',
+      });
+    }
   };
 };
 
-const editProduct = (product) => ({
+export const editProduct = (product) => ({
   type: EDIT_PRODUCT,
   payload: product,
+});
+
+const editProductSuccess = (product) => ({
+  type: EDIT_PRODUCT_SUCCESS,
+  payload: product,
+});
+
+const editProductError = (status) => ({
+  type: EDIT_PRODUCT_ERROR,
+  payload: status,
 });

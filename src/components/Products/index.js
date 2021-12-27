@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Product from './Product/index';
-import { Container, Row , Col, Button, Table} from 'react-bootstrap';
+import { Row , Col, Button, Table} from 'react-bootstrap';
 import NavReact from "../../shared/Navbar/index"
 import { FaPlusCircle } from 'react-icons/fa';
 import { getAllProductsAction } from '../../store/actions/product/productActions';
@@ -79,6 +79,6 @@ const Products = (props) => {
             </StyleRoot>
         </>
     );
-  };
+};
 
   export default Products;

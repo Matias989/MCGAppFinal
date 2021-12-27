@@ -20,7 +20,7 @@ const NewProducts = (props) => {
       if (form.checkValidity() === false) {
         event.preventDefault();
         event.stopPropagation();
-      }else{
+      }else{ 
         const product = {
             name,
             category

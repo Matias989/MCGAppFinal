@@ -7,6 +7,7 @@ import Login from './components/Login'
 import Home from './components/Home'
 import Productos from './components/Products';
 import ProductoNuevo from './components/Products/NewProduct';
+import ProductoEditado from './components/Products/EditProduct';
 import { Provider } from 'react-redux'
 import store from './store/index'
 
@@ -18,6 +19,7 @@ function App() {
         <Route exact path={'/Home'} component={Home} />
         <Route exact path={'/Productos'} component={Productos} />
         <Route exact path={'/Productos/New'} component={ProductoNuevo} />
+        <Route exact path={'/Productos/Edit/:id'} component={ProductoEditado} />
       </Router>
     </Provider>
   );
