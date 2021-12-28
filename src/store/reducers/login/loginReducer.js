@@ -7,6 +7,7 @@ import {
 } from '../../../types/login';
   
   var initialState = {
+    login: null,
     logged: false,
     message: undefined,
     isLogging: false

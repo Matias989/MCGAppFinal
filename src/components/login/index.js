@@ -1,14 +1,13 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { handleLogin } from '../../store/actions/login/loginActions'
 import styles from './login.module.css'
 
 const Login = (props) => {
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-
-  var email = '';
-  var password = '';
 
   const { message, logged } = useSelector((state) => state.login);
 
@@ -17,14 +16,6 @@ const Login = (props) => {
     if(response.type === 'LOGIN_SUCCESS') {
       props.history.push('/home')
     }
-  }
-
-  const onChangeEmail = (event) => {
-    email = event.target.value
-  }
-  
-  const onChangePassword = (event) => {
-    password = event.target.value
   }
 
   return (
@@ -37,14 +28,16 @@ const Login = (props) => {
               name="email"
               placeholder="Email"
               className={styles.input}
-              onChange={onChangeEmail}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
             <input
               type="password"
               name="password"
               placeholder="Contraseña"
               className={styles.input}
-              onChange={onChangePassword}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
             <button onClick={handleLoginView} className={styles.button}>
               Login
